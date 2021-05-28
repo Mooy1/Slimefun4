@@ -27,9 +27,9 @@ public class CraftingOperation implements MachineOperation {
     }
 
     public CraftingOperation(@Nonnull ItemStack[] ingredients, @Nonnull ItemStack[] results, int totalTicks) {
-        Validate.notEmpty(ingredients, "The Ingredients array cannot be empty or null");
+        Validate.notNull(ingredients, "The Ingredients array cannot be null");
         Validate.notEmpty(results, "The results array cannot be empty or null");
-        Validate.isTrue(totalTicks > 0, "The amount of total ticks must be a positive integer");
+        Validate.isTrue(totalTicks >= 0, "The amount of total ticks must not be negative");
 
         this.ingredients = ingredients;
         this.results = results;
